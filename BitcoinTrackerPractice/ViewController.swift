@@ -19,6 +19,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(refreshData), userInfo: nil,repeats: true)
+    }
+    
+    @objc func refreshData() -> Void{
+        fetchData()
     }
     
     func fetchData() {
